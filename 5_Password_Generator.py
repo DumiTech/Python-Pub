@@ -26,7 +26,7 @@ if choose == "easy":
         random_letters += random.choice(letters)
 
     for i in range(0, nr_numbers):
-        random_symbols += random.choice(numbers)
+        random_numbers += random.choice(numbers)
 
     for i in range(0, nr_symbols):
         random_symbols += random.choice(symbols)
