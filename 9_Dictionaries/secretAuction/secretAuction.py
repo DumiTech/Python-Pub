@@ -12,7 +12,7 @@ def add_new_person(name, bid, shall_continue):
     new_person = {}
     
     name = input("What is your name?\n")
-    bid = int(input("What's your bid?\n $"))
+    bid = int(input("What's your bid?\n$"))
     new_person = {
         name:bid
     }
@@ -43,13 +43,13 @@ def add_new_person(name, bid, shall_continue):
             if value > max:
                 max = value
                 increment += 1
-        print(f"The winner is {key_list[increment]} with a bid of ${max}")
+        print(f"\nThe winner is {key_list[increment]} with a bid of ${max}")
         
         # print(total_persons)    #test
         should_finish = True
     else:
         print("There is 100% percentage that you did something wrong")
-        print("This is the case where no one alter the code before me, lol.")
+        print("This is the case where no one alter the code after me, lol.")
     
 
 add_new_person(name='', bid='', shall_continue='')
