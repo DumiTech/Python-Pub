@@ -8,7 +8,12 @@ class QuizBrain:
     def next_question(self):
         current_question = self.question_list[self.question_number]
         self.question_number += 1
-        user_answer = input(f"Q.{self.question_number}: {current_question.question_text}. Type (True/False): ")
+        user_answer = input(f"Q.{self.question_number}: {current_question.question_text}. Type (True/t or False/f): ")
+        if user_answer.lower() == 't':
+            user_answer = 'True'
+        elif user_answer.lower() == 'f':
+            user_answer = 'False'
+        print(user_answer)
         self.check_answer(user_answer, current_question.question_answer)
         
     def still_has_questions(self):
