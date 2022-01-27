@@ -3,3 +3,7 @@ __pycache__
 assets
 results
 geckodriver.log
+elegantcasing.egg-info
+build
+dist
+.tox
