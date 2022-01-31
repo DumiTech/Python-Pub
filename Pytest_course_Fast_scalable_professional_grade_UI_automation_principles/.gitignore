@@ -1,9 +1,0 @@
-__pycache__
-.pytest_cache
-assets
-results
-geckodriver.log
-elegantcasing.egg-info
-build
-dist
-.tox
