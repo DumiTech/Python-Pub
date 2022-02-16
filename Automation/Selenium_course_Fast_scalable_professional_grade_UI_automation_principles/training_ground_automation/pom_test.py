@@ -1,25 +1,29 @@
 from selenium import webdriver
 
-from training_ground_page_v2 import TrainingGroundPage
+from training_ground_page import TrainingGroundPage
+from trial_page import TrialPage
 
 import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning) 
 
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 # Test Setup
-browser = webdriver.Chrome(options=options)
-test_value = 'well done'
+driver = webdriver.Chrome(options=options)
 
 # Test
+trial_page = TrialPage(driver)
+trial_page.go()
+trial_page.stone_input.input_text('rock')
+trial_page.stone_button.click()
+
+
+#Training grounds
 instruction_page = TrainingGroundPage(driver = browser)
 instruction_page.go()
-assert instruction_page.button1.text == 'Button1'
-instruction_page.button1.click()
-
+assert instruction_page.button1.text == 'Button1', 'Unexpected button1 text'
 browser.quit()
-
 
 
 ##for training_ground_page.py import:

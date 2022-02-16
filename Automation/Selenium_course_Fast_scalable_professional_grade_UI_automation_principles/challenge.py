@@ -4,7 +4,6 @@ import selenium
 import warnings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
-
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 

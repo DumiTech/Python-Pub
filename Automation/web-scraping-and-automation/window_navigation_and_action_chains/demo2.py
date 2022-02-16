@@ -1,10 +1,10 @@
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 
+import time
 
 url = 'https://finance.yahoo.com/'
 
@@ -20,6 +20,7 @@ element_search_field = browser.find_element(By.ID, search_id_field)
 # print(element_search_field)
 element_search_field.clear()
 element_search_field.send_keys('TSLA')
+time.sleep(3)
 element_search_field.send_keys(Keys.ENTER)
 
 # browser.refresh()
@@ -39,5 +40,4 @@ element = browser.find_element(By.XPATH, xpath_string)
 
 action_chains.move_to_element(element).click().perform()
 
-
-browser.quit()
+# browser.quit()
