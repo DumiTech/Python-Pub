@@ -1,14 +1,14 @@
-from turtle import pd
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+# import selenium
 from selenium.webdriver.common.action_chains import ActionChains
-import pandas as pd
-import time
-import datetime
+import pandas
+from datetime import datetime
+
 
 urls = [
     'https://www.tradingview.com/markets/stocks-usa/market-movers-large-cap/',
@@ -16,16 +16,19 @@ urls = [
 ]
 
 browser = webdriver.Chrome()
-browser.implicitly_wait(9)
+browser.implicitly_wait(3)
 browser.maximize_window()
 
 for url in urls:
     browser.get(url)
 
+dateTimeObj = datetime.now()
+date_ = str(dateTimeObj.year)  + str('{:02d}'.format(dateTimeObj.month)) + str('{:02d}'.format(dateTimeObj.day)) + '_' + str('{:02d}'.format(dateTimeObj.hour)) + '-' + str('{:02d}'.format(dateTimeObj.minute))
+
 file_base_name = url.split('/')[-2]
 print(f'Scraping {url}')
 
-xlwriter = pd.ExcelWriter(file_base_name + '.xlsx')
+xlwriter = pandas.ExcelWriter(file_base_name + '_' + '{date_}'.format(date_ = date_) + '.xlsx')
 
 
 categories = ['Overview', 'Performance', 'Valuation', 'Dividends', 'Margins', 'Income Statement', 'Balance Sheet', 
@@ -42,9 +45,7 @@ for category in categories:
         except ElementNotInteractableException:
             continue
         
-        time.sleep(2)
-        
-        df = pd.read_html(browser.page_source)[1]
+        df = pandas.read_html(browser.page_source)[1]
         # df.replace('-', '', inplace=True)
         df.to_excel(xlwriter, sheet_name=category, index=False)
         

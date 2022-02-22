@@ -10,10 +10,10 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 # Test Setup
-driver = webdriver.Chrome(options=options)
+browser = webdriver.Chrome(options=options)
 
 # Test
-trial_page = TrialPage(driver)
+trial_page = TrialPage(browser)
 trial_page.go()
 trial_page.stone_input.input_text('rock')
 trial_page.stone_button.click()
