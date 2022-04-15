@@ -23,8 +23,6 @@ class Dice:
         print(f"\nWinner number is: {self.winner_number}")
         if self.user_input >= 7 or self.user_input <= 0:
             return "\nYou cheated.. Computer won!"
-        if self.user_input == self.random_val:
-            return "\nDraw, no winner today!"
         elif abs(self.user_input - self.winner_number) == abs(self.random_val - self.winner_number):
             return "\nDraw, no winner today!"
         elif abs(self.user_input - self.winner_number) > abs(self.random_val - self.winner_number):

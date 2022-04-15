@@ -2,6 +2,7 @@ class MaxSizeList(object):
     def __init__(self, value):
         self.myList = []
         self.value = value
+        print(self.value)
 
     def push(self, text_input):
         try:

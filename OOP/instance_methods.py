@@ -4,7 +4,6 @@ class Vehicle:
         print("Mercedes")
         print("Audi")
 
-
 car = Vehicle()
 print(car)
 car.type()
