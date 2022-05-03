@@ -23,4 +23,3 @@ except TimeoutException as e:
     print('Loading Exceeds Delay Time')
 else:
     print(element.get_attribute('innerHTML'))
-    
