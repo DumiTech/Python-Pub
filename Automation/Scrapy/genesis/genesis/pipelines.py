@@ -5,11 +5,39 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+import sqlite3
 
 
 class GenesisPipeline:
-    def process_item(self, item, spider):
+    def __init__(self):
+        self.create_connection()
+        self.create_table()
 
+    def create_connection(self):
+        self.conn = sqlite3.connect("database/myquotes.db")
+        self.curs = self.conn.cursor()
+
+    def create_table(self):
+        self.curs.execute(
+            """
+            DROP TABLE IF EXISTS quotes_tb
+            """)
+        self.curs.execute(
+            """create table quotes_tb(
+            title text,
+            author text,
+            tags text)"""
+        )
+
+    def process_item(self, item, spider):
+        self.store_db(item)
         print("Pipeline: " + item["title"][0])
         return item
+
+    def store_db(self, item):
+        self.curs.execute("""INSERT INTO quotes_tb VALUES (?,?,?)""",(
+            item['title'][0],
+            item['author'][0],
+            item['tags'][0],
+        ))
+        self.conn.commit()
