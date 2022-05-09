@@ -6,6 +6,10 @@
 
 # useful for handling different item types with a single interface
 import sqlite3
+import random
+
+random_fingerprint = random.randint(999999999999, 999999999999999899)
+db_path = "database/myquotes_{}.db".format(random_fingerprint)
 
 
 class GenesisPipeline:
@@ -14,7 +18,7 @@ class GenesisPipeline:
         self.create_table()
 
     def create_connection(self):
-        self.conn = sqlite3.connect("database/myquotes.db")
+        self.conn = sqlite3.connect(db_path)
         self.curs = self.conn.cursor()
 
     def create_table(self):
