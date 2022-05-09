@@ -5,9 +5,6 @@ random_fingerprint = random.randint(999999999999, 999999999999999899)
 db_path = "database/myquotes_{}.db".format(random_fingerprint)
 
 conn = sqlite3.connect(db_path)
-print()
-print(conn)
-print()
 
 curs = conn.cursor()
 

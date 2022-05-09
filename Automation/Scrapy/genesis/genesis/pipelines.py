@@ -25,7 +25,8 @@ class GenesisPipeline:
         self.curs.execute(
             """
             DROP TABLE IF EXISTS quotes_tb
-            """)
+            """
+        )
         self.curs.execute(
             """create table quotes_tb(
             title text,
@@ -39,9 +40,12 @@ class GenesisPipeline:
         return item
 
     def store_db(self, item):
-        self.curs.execute("""INSERT INTO quotes_tb VALUES (?,?,?)""",(
-            item['title'][0],
-            item['author'][0],
-            item['tags'][0],
-        ))
+        self.curs.execute(
+            """INSERT INTO quotes_tb VALUES (?,?,?)""",
+            (
+                item["title"][0],
+                item["author"][0],
+                item["tags"][0],
+            ),
+        )
         self.conn.commit()
