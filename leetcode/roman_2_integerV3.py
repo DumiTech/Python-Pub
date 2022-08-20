@@ -21,8 +21,7 @@ class Roman2Integer:
 
         return num + dict[s[-1]]
 
-class Solution:
  
-    s = "MCMXCIX"
-    obj = Roman2Integer()
-    print(obj.romanToInt(s))
+s = "MCMXCIX"
+obj = Roman2Integer()
+print(obj.romanToInt(s))

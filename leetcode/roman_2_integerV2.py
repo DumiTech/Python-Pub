@@ -22,8 +22,7 @@ class Roman2Integer:
         return num
 
 
-class Solution:
  
-    s = "IX"
-    obj = Roman2Integer()
-    print(obj.romanToInt(s))
+s = "IX"
+obj = Roman2Integer()
+print(obj.romanToInt(s))

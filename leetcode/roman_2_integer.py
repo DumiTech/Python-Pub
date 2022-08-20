@@ -49,8 +49,6 @@ class Roman2Integer:
         return num
 
 
-class Solution:
- 
-    s = "MCMXCIV"
-    obj = Roman2Integer()
-    print(obj.romanToInt(s))
+s = "MCMXCIV"
+obj = Roman2Integer()
+print(obj.romanToInt(s))
