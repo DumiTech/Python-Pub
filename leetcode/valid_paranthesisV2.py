@@ -9,8 +9,7 @@ Open brackets must be closed in the correct order.
 
 class Solution:
     def isValid(self, s:str) -> bool:
-        pair = dict(('()', '[]', '{}'))
-        stack = []
+        pair, stack = dict(('()', '[]', '{}')), []
         for x in s:
             if x in '([{':
                 stack.append(x)
@@ -19,10 +18,6 @@ class Solution:
         return len(stack) == 0
         
 
-s = '()[]{}'
-s1 = '{[()]}'
-s2 = '[}'
+s, s1, s2 = '()[]{}', '{[()]}', '[}'
 obj = Solution()
-print(obj.isValid(s))
-print(obj.isValid(s1))
-print(obj.isValid(s2))
+print(obj.isValid(s), obj.isValid(s1), obj.isValid(s2))
