@@ -8,16 +8,16 @@ class LongestCommonPrefix:
 
     def longestCommonPrefix(self, strs):
 
-        if not strs or len(strs) < 1 or len(strs) >= 200:
+        if not strs or len(strs) < 1 or len(strs) > 200:
             return ""
 
         shortest = min(strs)
 
-        for i, j in enumerate(shortest):
+        for num, ch in enumerate(shortest):
             for str in strs:
-                if str[i] != j:
-                    return shortest[:i]
-        return shortest     
+                if str[num] != ch:
+                    return shortest[:num]
+        return shortest
 
 
 # strs = ["a", "aa"]
