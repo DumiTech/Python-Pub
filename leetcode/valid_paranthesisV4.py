@@ -21,5 +21,5 @@ s1 = '{[()]}'
 s2 = '[}'
 obj = Solution()
 print(obj.isValid(s))
-# print(obj.isValid(s1))
-# print(obj.isValid(s2))
+print(obj.isValid(s1))
+print(obj.isValid(s2))
